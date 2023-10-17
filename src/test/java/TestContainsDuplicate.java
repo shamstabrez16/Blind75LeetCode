@@ -11,18 +11,17 @@ public class TestContainsDuplicate {
         containsDuplicate = new ContainsDuplicate();
     }
     @Test
-    public void TestCase1(){
+    public void testCase1(){
         int[] nums={1,2,3,1};
-        boolean expected= true;
         Assert.assertTrue(containsDuplicate.containsDuplicate(nums));
     }
     @Test
-    public void TestCase2(){
+    public void testCase2(){
         int[] nums={1,2,3,4};
         Assert.assertFalse(containsDuplicate.containsDuplicate(nums));
     }
     @Test
-    public void TestCase3(){
+    public void testCase3(){
         int[] nums={1,1,1,3,3,4,3,2,4,2};
         Assert.assertTrue(containsDuplicate.containsDuplicate(nums));
     }

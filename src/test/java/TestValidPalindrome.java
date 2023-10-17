@@ -11,25 +11,25 @@ public class TestValidPalindrome {
     }
 
     @Test
-    public void TestCase1(){
+    public void testCase1(){
        String  s = "A man, a plan, a canal: Panama";
         Assert.assertTrue(validPalindrome.isPalindrome(s));
 
     }
     @Test
-    public void TestCase2(){
+    public void testCase2(){
         String s = " ";
         Assert.assertTrue(validPalindrome.isPalindrome(s));
     }
     @Test
-    public void TestCase3(){
+    public void testCase3(){
         String  s = "race a car";
         Assert.assertFalse(validPalindrome.isPalindrome(s));
 
 
     }
     @Test
-    public void TestCase4(){
+    public void testCase4(){
         String  s = "0P";
         Assert.assertFalse(validPalindrome.isPalindrome(s));
 
