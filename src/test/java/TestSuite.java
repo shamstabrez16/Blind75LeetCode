@@ -1,18 +1,20 @@
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
-import String.ValidParentheses;
-import String.ValidPalindrome;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         TestBestTimeToBuyAndSellStock.class,
         TestContainsDuplicate.class,
         TestMaximumSubArray.class,
+        TestGroupAnagrams.class,
+        TestLongestSubstringWithoutRepeatingCharacters.class,
         TestMaximumProductSubarray.class,
+        TestMaximumSubArray.class,
         TestProductOfArrayExceptSelf.class,
+        TestThreeSum.class,
         TestTwoSum.class,
-        ValidParentheses.class,
-        ValidPalindrome.class
+        TestValidAnagrams.class,
+        TestValidAnagrams.class
 })
 public class TestSuite {
 }

@@ -35,8 +35,6 @@ public class TestSearchInRotatedSortedArray {
         int target = 0;
         int expectedOutput =-1;
         Assert.assertEquals(expectedOutput,searchInRotatedSortedArray.search(nums,target));
-
-
     }
     @Test
     public void testCase4(){
