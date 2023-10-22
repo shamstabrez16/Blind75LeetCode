@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html id="htmlId">
 <head>
-  <title>Coverage Report > ContainsDuplicate</title>
+  <title>Coverage Report > ValidAnagram</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/idea.min.css";
@@ -18,10 +18,10 @@
 <div class="breadCrumbs">
 Current scope:     <a href="../../index.html">all classes</a>
     <span class="separator">|</span>
-    <a href="../index.html">Array</a>
+    <a href="../index.html">String</a>
 </div>
 
-<h1>Coverage Summary for Class: ContainsDuplicate (Array)</h1>
+<h1>Coverage Summary for Class: ValidAnagram (String)</h1>
 
 <table class="coverageStats">
 <tr>
@@ -40,7 +40,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 </th>
 </tr>
 <tr>
-  <td class="name">ContainsDuplicate</td>
+  <td class="name">ValidAnagram</td>
 <td class="coverageStat">
   <span class="percent">
     100%
@@ -59,10 +59,10 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    100%
+    88.2%
   </span>
   <span class="absValue">
-    (6/6)
+    (15/17)
   </span>
 </td>
 </tr>
@@ -74,21 +74,32 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<code class="sourceCode" id="sourceCode">&nbsp;package Array;
+<code class="sourceCode" id="sourceCode">&nbsp;package String;
 &nbsp;
-&nbsp;import java.util.HashSet;
-&nbsp;import java.util.Set;
+&nbsp;import java.util.Arrays;
 &nbsp;
-<b class="fc">&nbsp;public class ContainsDuplicate {</b>
-&nbsp;
-&nbsp;    public boolean containsDuplicate(int[] nums) {
-<b class="fc">&nbsp;        Set&lt;Integer&gt; set = new HashSet&lt;&gt;();</b>
-<b class="fc">&nbsp;        for (int n : nums</b>
-&nbsp;        ) {
-<b class="fc">&nbsp;            if(!set.add(n))</b>
-<b class="fc">&nbsp;                return true;</b>
+<b class="fc">&nbsp;public class ValidAnagram {</b>
+&nbsp;    public boolean isAnagram(String s, String t) {
+<b class="fc">&nbsp;        if(s.length()!=t.length()){</b>
+<b class="nc">&nbsp;            return false;</b>
 &nbsp;        }
-<b class="fc">&nbsp;        return false;</b>
+<b class="fc">&nbsp;        char[] str1 = s.toCharArray();</b>
+<b class="fc">&nbsp;        char[] str2= t.toCharArray();</b>
+<b class="fc">&nbsp;        Arrays.sort(str1);</b>
+<b class="fc">&nbsp;        Arrays.sort(str2);</b>
+<b class="fc">&nbsp;        int i = 0;</b>
+<b class="fc">&nbsp;        int j = str1.length-1;</b>
+<b class="fc">&nbsp;        while(i&lt;=j){</b>
+<b class="fc">&nbsp;            if(str1[i]!=str2[i]){</b>
+<b class="nc">&nbsp;                return false;</b>
+&nbsp;            }
+<b class="fc">&nbsp;            if(str1[j]!=str2[j]){</b>
+<b class="fc">&nbsp;                return false;</b>
+&nbsp;            }
+<b class="fc">&nbsp;            i++;</b>
+<b class="fc">&nbsp;            j--;</b>
+&nbsp;        }
+<b class="fc">&nbsp;        return true;</b>
 &nbsp;    }
 &nbsp;}
 </code>

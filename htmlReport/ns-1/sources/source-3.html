@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html id="htmlId">
 <head>
-  <title>Coverage Report > MaximumProductSubarray</title>
+  <title>Coverage Report > FindMinimumInRotatedSortedArray</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/idea.min.css";
@@ -21,7 +21,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     <a href="../index.html">Array</a>
 </div>
 
-<h1>Coverage Summary for Class: MaximumProductSubarray (Array)</h1>
+<h1>Coverage Summary for Class: FindMinimumInRotatedSortedArray (Array)</h1>
 
 <table class="coverageStats">
 <tr>
@@ -40,7 +40,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 </th>
 </tr>
 <tr>
-  <td class="name">MaximumProductSubarray</td>
+  <td class="name">FindMinimumInRotatedSortedArray</td>
 <td class="coverageStat">
   <span class="percent">
     100%
@@ -62,7 +62,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     100%
   </span>
   <span class="absValue">
-    (9/9)
+    (10/10)
   </span>
 </td>
 </tr>
@@ -75,17 +75,21 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <pre>
 <code class="sourceCode" id="sourceCode">&nbsp;package Array;
-<b class="fc">&nbsp;public class MaximumProductSubarray {</b>
-&nbsp;    public int maxProduct(int[] nums) {
-<b class="fc">&nbsp;        int max =nums[0];</b>
-<b class="fc">&nbsp;        int currentMax = nums[0], currentMin = nums[0];</b>
-<b class="fc">&nbsp;        for (int i = 1; i &lt; nums.length; i++) {</b>
-<b class="fc">&nbsp;            int tempMax = currentMax;</b>
-<b class="fc">&nbsp;            currentMax = Math.max(Math.max(currentMax *nums[i], currentMin*nums[i]),nums[i] );</b>
-<b class="fc">&nbsp;            currentMin = Math.min(Math.min(tempMax*nums[i],currentMin*nums[i]), nums[i]);</b>
-<b class="fc">&nbsp;            max = Math.max(currentMax,max);</b>
-&nbsp;        }
-<b class="fc">&nbsp;        return max;</b>
+&nbsp;
+<b class="fc">&nbsp;public class FindMinimumInRotatedSortedArray {</b>
+&nbsp;    public int findMin(int[] nums) {
+<b class="fc">&nbsp;        int left = 0;</b>
+<b class="fc">&nbsp;        int right = nums.length-1;</b>
+<b class="fc">&nbsp;        while (left&lt;right){</b>
+<b class="fc">&nbsp;            int mid = (left+right)/2;</b>
+<b class="fc">&nbsp;            if(nums[mid]&lt;nums[right]){</b>
+<b class="fc">&nbsp;                right = mid;</b>
+&nbsp;            }
+&nbsp;            else {
+<b class="fc">&nbsp;                left = mid+1;</b>
+&nbsp;            }
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;        return nums[left];</b>
 &nbsp;    }
 &nbsp;}
 </code>
@@ -111,7 +115,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2023-10-16 11:12</div>
+    <div style="float:right;">generated on 2023-10-21 20:46</div>
 </div>
 </body>
 </html>

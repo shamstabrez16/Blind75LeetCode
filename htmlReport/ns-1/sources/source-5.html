@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html id="htmlId">
 <head>
-  <title>Coverage Report > ProductOfArrayExceptSelf</title>
+  <title>Coverage Report > MaximumSubArray</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/idea.min.css";
@@ -21,7 +21,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     <a href="../index.html">Array</a>
 </div>
 
-<h1>Coverage Summary for Class: ProductOfArrayExceptSelf (Array)</h1>
+<h1>Coverage Summary for Class: MaximumSubArray (Array)</h1>
 
 <table class="coverageStats">
 <tr>
@@ -40,7 +40,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 </th>
 </tr>
 <tr>
-  <td class="name">ProductOfArrayExceptSelf</td>
+  <td class="name">MaximumSubArray</td>
 <td class="coverageStat">
   <span class="percent">
     100%
@@ -62,7 +62,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     100%
   </span>
   <span class="absValue">
-    (12/12)
+    (8/8)
   </span>
 </td>
 </tr>
@@ -76,26 +76,18 @@ Current scope:     <a href="../../index.html">all classes</a>
 <pre>
 <code class="sourceCode" id="sourceCode">&nbsp;package Array;
 &nbsp;
-&nbsp;import java.util.Arrays;
+<b class="fc">&nbsp;public class MaximumSubArray {</b>
 &nbsp;
-<b class="fc">&nbsp;public class ProductOfArrayExceptSelf {</b>
-&nbsp;
-&nbsp;    public int[] productExceptSelf(int[] nums) {
-<b class="fc">&nbsp;        int[] pp = new int[nums.length];</b>
-<b class="fc">&nbsp;        pp[0]=1;</b>
-<b class="fc">&nbsp;        int[] sp = new int[nums.length];</b>
-<b class="fc">&nbsp;        sp[nums.length-1]=1;</b>
-<b class="fc">&nbsp;        for (int i = 0; i &lt;nums.length-1; i++) {</b>
-<b class="fc">&nbsp;            pp[i+1]= pp[i]*nums[i];</b>
+&nbsp;    public  int maxSubArray(int[] nums) {
+<b class="fc">&nbsp;        int currentSum = 0;</b>
+<b class="fc">&nbsp;        int maxSum =  Integer.MIN_VALUE;</b>
+<b class="fc">&nbsp;        for (int num : nums) {</b>
+<b class="fc">&nbsp;            currentSum = currentSum + num;</b>
+<b class="fc">&nbsp;            maxSum = Math.max(maxSum, currentSum);</b>
+<b class="fc">&nbsp;            if (currentSum &lt; 0) currentSum = 0;</b>
 &nbsp;        }
-<b class="fc">&nbsp;        for (int i = nums.length-1; i &gt;=1; i--) {</b>
-<b class="fc">&nbsp;            sp[i-1]= sp[i]*nums[i];</b>
-<b class="fc">&nbsp;            pp[i]= pp[i]*sp[i];</b>
-&nbsp;        }
-<b class="fc">&nbsp;        pp[0]= pp[0]*sp[0];</b>
-<b class="fc">&nbsp;        return pp;</b>
+<b class="fc">&nbsp;        return  maxSum;</b>
 &nbsp;    }
-&nbsp;
 &nbsp;}
 </code>
 </pre>
@@ -120,7 +112,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2023-10-16 11:12</div>
+    <div style="float:right;">generated on 2023-10-21 20:46</div>
 </div>
 </body>
 </html>

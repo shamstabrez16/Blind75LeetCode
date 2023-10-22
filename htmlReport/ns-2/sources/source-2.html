@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html id="htmlId">
 <head>
-  <title>Coverage Report > ContainsDuplicate</title>
+  <title>Coverage Report > LongestSubstringWithoutRepeatingCharacters</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/idea.min.css";
@@ -18,10 +18,10 @@
 <div class="breadCrumbs">
 Current scope:     <a href="../../index.html">all classes</a>
     <span class="separator">|</span>
-    <a href="../index.html">Array</a>
+    <a href="../index.html">String</a>
 </div>
 
-<h1>Coverage Summary for Class: ContainsDuplicate (Array)</h1>
+<h1>Coverage Summary for Class: LongestSubstringWithoutRepeatingCharacters (String)</h1>
 
 <table class="coverageStats">
 <tr>
@@ -40,7 +40,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 </th>
 </tr>
 <tr>
-  <td class="name">ContainsDuplicate</td>
+  <td class="name">LongestSubstringWithoutRepeatingCharacters</td>
 <td class="coverageStat">
   <span class="percent">
     100%
@@ -62,7 +62,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     100%
   </span>
   <span class="absValue">
-    (6/6)
+    (14/14)
   </span>
 </td>
 </tr>
@@ -74,21 +74,24 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<code class="sourceCode" id="sourceCode">&nbsp;package Array;
+<code class="sourceCode" id="sourceCode">&nbsp;package String;
+<b class="fc">&nbsp;public class LongestSubstringWithoutRepeatingCharacters {</b>
+&nbsp;    public int lengthOfLongestSubstring(String s) {
+<b class="fc">&nbsp;        int pointer = 0;</b>
+<b class="fc">&nbsp;        int max = 0;</b>
+<b class="fc">&nbsp;        StringBuilder sBuilder = new StringBuilder();</b>
+<b class="fc">&nbsp;        while (pointer &lt; s.length()) {</b>
+<b class="fc">&nbsp;            char c = s.charAt(pointer);</b>
+<b class="fc">&nbsp;            int index = sBuilder.indexOf(String.valueOf(c));</b>
+<b class="fc">&nbsp;            if (index &gt;= 0) {</b>
+<b class="fc">&nbsp;                sBuilder.delete(0, index + 1);</b>
+&nbsp;            }
+<b class="fc">&nbsp;            sBuilder.append(c);</b>
+<b class="fc">&nbsp;            max = Math.max(max, sBuilder.length());</b>
+<b class="fc">&nbsp;            pointer++;</b>
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;        return max;</b>
 &nbsp;
-&nbsp;import java.util.HashSet;
-&nbsp;import java.util.Set;
-&nbsp;
-<b class="fc">&nbsp;public class ContainsDuplicate {</b>
-&nbsp;
-&nbsp;    public boolean containsDuplicate(int[] nums) {
-<b class="fc">&nbsp;        Set&lt;Integer&gt; set = new HashSet&lt;&gt;();</b>
-<b class="fc">&nbsp;        for (int n : nums</b>
-&nbsp;        ) {
-<b class="fc">&nbsp;            if(!set.add(n))</b>
-<b class="fc">&nbsp;                return true;</b>
-&nbsp;        }
-<b class="fc">&nbsp;        return false;</b>
 &nbsp;    }
 &nbsp;}
 </code>

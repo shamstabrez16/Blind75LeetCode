@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html id="htmlId">
 <head>
-  <title>Coverage Report > ContainsDuplicate</title>
+  <title>Coverage Report > TwoSum</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/idea.min.css";
@@ -21,7 +21,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     <a href="../index.html">Array</a>
 </div>
 
-<h1>Coverage Summary for Class: ContainsDuplicate (Array)</h1>
+<h1>Coverage Summary for Class: TwoSum (Array)</h1>
 
 <table class="coverageStats">
 <tr>
@@ -40,7 +40,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 </th>
 </tr>
 <tr>
-  <td class="name">ContainsDuplicate</td>
+  <td class="name">TwoSum</td>
 <td class="coverageStat">
   <span class="percent">
     100%
@@ -62,7 +62,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     100%
   </span>
   <span class="absValue">
-    (6/6)
+    (10/10)
   </span>
 </td>
 </tr>
@@ -76,19 +76,27 @@ Current scope:     <a href="../../index.html">all classes</a>
 <pre>
 <code class="sourceCode" id="sourceCode">&nbsp;package Array;
 &nbsp;
-&nbsp;import java.util.HashSet;
-&nbsp;import java.util.Set;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.HashMap;
 &nbsp;
-<b class="fc">&nbsp;public class ContainsDuplicate {</b>
+<b class="fc">&nbsp;public class TwoSum {</b>
 &nbsp;
-&nbsp;    public boolean containsDuplicate(int[] nums) {
-<b class="fc">&nbsp;        Set&lt;Integer&gt; set = new HashSet&lt;&gt;();</b>
-<b class="fc">&nbsp;        for (int n : nums</b>
-&nbsp;        ) {
-<b class="fc">&nbsp;            if(!set.add(n))</b>
-<b class="fc">&nbsp;                return true;</b>
+&nbsp;
+&nbsp;    public int[] twoSum(int[] nums, int target) {
+<b class="fc">&nbsp;        int[] result = new int[2];</b>
+<b class="fc">&nbsp;        HashMap&lt;Integer,Integer&gt; map = new HashMap&lt;&gt;();</b>
+<b class="fc">&nbsp;        for (int i = 0; i &lt; nums.length; i++) {</b>
+<b class="fc">&nbsp;           if(!map.containsKey(target- nums[i])){</b>
+<b class="fc">&nbsp;               map.put(nums[i],i);</b>
+&nbsp;           }
+&nbsp;           else{
+<b class="fc">&nbsp;               result[0]= map.get(target-nums[i]);</b>
+<b class="fc">&nbsp;               result[1]= i;</b>
+<b class="fc">&nbsp;               break;</b>
+&nbsp;           }
 &nbsp;        }
-<b class="fc">&nbsp;        return false;</b>
+<b class="fc">&nbsp;      return  result;</b>
+&nbsp;
 &nbsp;    }
 &nbsp;}
 </code>

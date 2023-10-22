@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html id="htmlId">
 <head>
-  <title>Coverage Report > ContainsDuplicate</title>
+  <title>Coverage Report > GroupAnagrams</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/idea.min.css";
@@ -18,10 +18,10 @@
 <div class="breadCrumbs">
 Current scope:     <a href="../../index.html">all classes</a>
     <span class="separator">|</span>
-    <a href="../index.html">Array</a>
+    <a href="../index.html">String</a>
 </div>
 
-<h1>Coverage Summary for Class: ContainsDuplicate (Array)</h1>
+<h1>Coverage Summary for Class: GroupAnagrams (String)</h1>
 
 <table class="coverageStats">
 <tr>
@@ -40,7 +40,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 </th>
 </tr>
 <tr>
-  <td class="name">ContainsDuplicate</td>
+  <td class="name">GroupAnagrams</td>
 <td class="coverageStat">
   <span class="percent">
     100%
@@ -62,7 +62,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     100%
   </span>
   <span class="absValue">
-    (6/6)
+    (10/10)
   </span>
 </td>
 </tr>
@@ -74,21 +74,24 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<code class="sourceCode" id="sourceCode">&nbsp;package Array;
+<code class="sourceCode" id="sourceCode">&nbsp;package String;
 &nbsp;
-&nbsp;import java.util.HashSet;
-&nbsp;import java.util.Set;
+&nbsp;import java.util.*;
 &nbsp;
-<b class="fc">&nbsp;public class ContainsDuplicate {</b>
-&nbsp;
-&nbsp;    public boolean containsDuplicate(int[] nums) {
-<b class="fc">&nbsp;        Set&lt;Integer&gt; set = new HashSet&lt;&gt;();</b>
-<b class="fc">&nbsp;        for (int n : nums</b>
-&nbsp;        ) {
-<b class="fc">&nbsp;            if(!set.add(n))</b>
-<b class="fc">&nbsp;                return true;</b>
+<b class="fc">&nbsp;public class GroupAnagrams {</b>
+&nbsp;    public List&lt;List&lt;String&gt;&gt; groupAnagrams(String[] strs) {
+<b class="fc">&nbsp;        HashMap&lt;String, List&lt;String&gt;&gt; map = new HashMap&lt;&gt;();</b>
+<b class="fc">&nbsp;        for (String s : strs) {</b>
+<b class="fc">&nbsp;            char[] charArray = s.toCharArray();</b>
+<b class="fc">&nbsp;            Arrays.sort(charArray);</b>
+<b class="fc">&nbsp;            String sortedStr = new String(charArray);</b>
+<b class="fc">&nbsp;            if (!map.containsKey(sortedStr)) {</b>
+<b class="fc">&nbsp;                map.put(sortedStr, new ArrayList&lt;&gt;());</b>
+&nbsp;            }
+<b class="fc">&nbsp;            map.get(sortedStr).add(s);</b>
 &nbsp;        }
-<b class="fc">&nbsp;        return false;</b>
+&nbsp;
+<b class="fc">&nbsp;        return new ArrayList&lt;&gt;(map.values());</b>
 &nbsp;    }
 &nbsp;}
 </code>

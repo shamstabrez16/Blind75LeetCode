@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html id="htmlId">
 <head>
-  <title>Coverage Report > ContainsDuplicate</title>
+  <title>Coverage Report > SearchInRotatedSortedArray</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/idea.min.css";
@@ -21,7 +21,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     <a href="../index.html">Array</a>
 </div>
 
-<h1>Coverage Summary for Class: ContainsDuplicate (Array)</h1>
+<h1>Coverage Summary for Class: SearchInRotatedSortedArray (Array)</h1>
 
 <table class="coverageStats">
 <tr>
@@ -40,7 +40,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 </th>
 </tr>
 <tr>
-  <td class="name">ContainsDuplicate</td>
+  <td class="name">SearchInRotatedSortedArray</td>
 <td class="coverageStat">
   <span class="percent">
     100%
@@ -59,10 +59,10 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    100%
+    72.2%
   </span>
   <span class="absValue">
-    (6/6)
+    (13/18)
   </span>
 </td>
 </tr>
@@ -75,21 +75,35 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <pre>
 <code class="sourceCode" id="sourceCode">&nbsp;package Array;
+<b class="fc">&nbsp;public class SearchInRotatedSortedArray {</b>
 &nbsp;
-&nbsp;import java.util.HashSet;
-&nbsp;import java.util.Set;
-&nbsp;
-<b class="fc">&nbsp;public class ContainsDuplicate {</b>
-&nbsp;
-&nbsp;    public boolean containsDuplicate(int[] nums) {
-<b class="fc">&nbsp;        Set&lt;Integer&gt; set = new HashSet&lt;&gt;();</b>
-<b class="fc">&nbsp;        for (int n : nums</b>
-&nbsp;        ) {
-<b class="fc">&nbsp;            if(!set.add(n))</b>
-<b class="fc">&nbsp;                return true;</b>
+&nbsp;    public int search(int[] nums, int target) {
+<b class="fc">&nbsp;        int l = 0;</b>
+<b class="fc">&nbsp;        int r = nums.length-1;</b>
+&nbsp;        int mid;
+<b class="fc">&nbsp;        while (l&lt;=r) {</b>
+<b class="fc">&nbsp;            mid = (r + l) / 2;</b>
+<b class="fc">&nbsp;            if (nums[mid] == target) {</b>
+<b class="fc">&nbsp;                return mid;</b>
+&nbsp;            }
+<b class="fc">&nbsp;            if (nums[l]&lt;=nums[mid]) { //left to right is sorted</b>
+<b class="fc">&nbsp;                if(nums[l]&lt;= target &amp;&amp; target&lt;nums[mid]){</b>
+<b class="fc">&nbsp;                    r = mid-1;</b>
+&nbsp;                }
+&nbsp;                else{
+<b class="fc">&nbsp;                    l = mid+1;</b>
+&nbsp;                }
+&nbsp;            } else{
+<b class="nc">&nbsp;                if(nums[mid]&lt; target &amp;&amp; target&lt;=nums[r]){  //right to left sorted</b>
+<b class="nc">&nbsp;                    l = mid+1;</b>
+<b class="nc">&nbsp;                }</b>
+&nbsp;                else{
+<b class="nc">&nbsp;                    r = mid-1;</b>
+<b class="nc">&nbsp;                }</b>
+&nbsp;            }
 &nbsp;        }
-<b class="fc">&nbsp;        return false;</b>
-&nbsp;    }
+<b class="fc">&nbsp;        return -1;</b>
+<b class="fc">&nbsp;    }</b>
 &nbsp;}
 </code>
 </pre>

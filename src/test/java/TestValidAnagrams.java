@@ -21,4 +21,9 @@ public class TestValidAnagrams {
         String  s = "rat", t = "car";
         Assert.assertFalse(validAnagram.isAnagram(s,t));
     }
+    @Test
+    public void testCase3(){
+        String  s = "nl", t = "cx";
+        Assert.assertFalse(validAnagram.isAnagram(s,t));
+    }
 }
